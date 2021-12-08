@@ -7,25 +7,32 @@
     <link rel="stylesheet" href="style.css">
     <title>Tower of Hanoi</title>
 </head>
+<header>
+    <h1>Tower Of Hanoi</h1>
+</header>
+
 <body>
-    <script src="script.css"></script>
 <div class="gameBoard">
 
-    <div class="rings">
-        <!-- <img src="assets/horizontal-ring.png" alt="" id="bottom-disk">
-        <img src="assets/vertical-ring.png" alt="">
-        <img src="assets/vertical-ring.png" alt="">
-        <img src="assets/vertical-ring.png" alt=""> -->
-        <img src="assets/rings.png" alt="">
-    </div>
-
-
     <div class="disks">
-        <img src="assets/disk1.png" alt="large disk" id="1">
-        <img src="assets/disk2.png" alt="medium disk" id="2">
-        <img src="assets/disk3.png" alt="small disk" id="3">
+        <img src="assets/disk1.png" alt="large disk" id="disk1" draggable="true">
+        <img src="assets/disk2.png" alt="medium disk" id="disk2" draggable="true">
+        <img src="assets/disk3.png" alt="small disk" id="disk3" draggable="true">
     </div>
-</div>
 
+    <div class="towers">
+
+        <img src="assets/ring.png" alt="" id="left-tower">
+        <img src="assets/ring.png" alt="" id="middle-tower">
+        <img src="assets/ring.png" alt="" id="right-tower">
+
+    </div>
+
+    <div class="left-side"></div>
+    <div class="middle-side"></div>
+    <div class="right-side"></div>
+
+</div>
+<script src="script.js"></script>
 </body>
 </html>

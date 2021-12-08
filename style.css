@@ -2,26 +2,65 @@
     background-color: burlywood;
 }
 
-/* .rings {
-    display: flex;
-    justify-content: center;
+h1 {
+    text-align: center;
 }
 
-.disks {
+.towers {
+
+    /* display: inline-block;
+    padding: 5px; */
+    /* background: red;
+    background-color: red; */
+
     display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-} */
+    flex-direction: row;
+    padding: 50%; 
+    justify-content: center;
+    
+}
 
 .gameboard {
     position: relative;
 }
 
 .disks {
+
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     position: absolute;
-    top: 570px;
-    left: 525px;
+    cursor: grab;
+
+}
+
+#middle-tower {
+    margin: 0 10px;
+}
+
+#disk1 {
+    width: 10%;
+}
+#disk2 {
+    width: 8%;
+}
+#disk3 {
+    width: 5%;
+}
+
+.disks > img {
+    margin: 1px;
+    height: 6px;
+}
+
+.left-side {
+    position: relative;
+    top: 505px;
+    left: -90px;
+}
+
+.middle-side {
+    position: relative;
+    top: 505px;
+    left: 0px;
 }
