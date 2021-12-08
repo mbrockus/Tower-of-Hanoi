@@ -1,0 +1,27 @@
+* {
+    background-color: burlywood;
+}
+
+/* .rings {
+    display: flex;
+    justify-content: center;
+}
+
+.disks {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+} */
+
+.gameboard {
+    position: relative;
+}
+
+.disks {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    position: absolute;
+    top: 570px;
+    left: 525px;
+}
