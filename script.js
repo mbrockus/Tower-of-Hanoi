@@ -4,9 +4,7 @@ console.log('test')
 // grab towers
 const towersEl = document.querySelectorAll('.towers')
 
-const leftTowerEl = document.querySelector('#left-tower')
-const middleTowerEl = document.querySelector('#middle-tower');
-const rightTowerEl = document.querySelector('#right-tower');
+const middleTowerEl = document.querySelector('#box-2')
 
 // grab disks
 const disks = document.querySelector('.disks')
@@ -19,18 +17,28 @@ const disk3 = document.querySelector('#disk3');
 function init (){
     console.log('call from init')
     // add to left div
-    disks.classList.add('middle-side')
+    // disks.classList.add('left-side')
+    // disk1.classList.remove('left-side')
+    disk1.classList.add('left-side')
 
 }
 // drop on event.target
 function moveDisk (event) {
     event.preventDefault()
     console.log(event.target)
+    // when dropped on other tower
+    // append to that towers class
+    // take it out of the current tower
 }
 
 function targetDroppedOn (event) {
-    event.preventDefault()
+    // event.preventDefault()
     console.log('item dropped')
+}
+
+function clickHandler (event){
+    console.log('clicked')
+    middleTowerEl.append(event.target)
 }
 
 // initialize positions
@@ -41,4 +49,9 @@ init()
 // event listener for when the block starts to drag
 // event listener for when the block is dropped
 // document.addEventListener('dragend', moveDisk)
-disks.addEventListener('drop', targetDroppedOn)
+// document.addEventListener('drop', targetDroppedOn)
+disk1.addEventListener('click', clickHandler);
+disk2.addEventListener('click', clickHandler);
+disk3.addEventListener('click', clickHandler);
+
+

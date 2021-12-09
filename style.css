@@ -1,37 +1,17 @@
 * {
-    background-color: burlywood;
+    background-color: #4CC9F0;
 }
 
 h1 {
     text-align: center;
 }
 
-.towers {
+/* color pallet https://coolors.co/f72585-b5179e-7209b7-560bad-480ca8-3a0ca3-3f37c9-4361ee-4895ef-4cc9f0 */
 
-    /* display: inline-block;
-    padding: 5px; */
-    /* background: red;
-    background-color: red; */
 
-    display: flex;
-    flex-direction: row;
-    padding: 50%; 
-    justify-content: center;
-    
-}
 
 .gameboard {
     position: relative;
-}
-
-.disks {
-
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    position: absolute;
-    cursor: grab;
-
 }
 
 #middle-tower {
@@ -39,28 +19,48 @@ h1 {
 }
 
 #disk1 {
-    width: 10%;
+    width: 100%;
+    height: 10px;
 }
 #disk2 {
-    width: 8%;
+    width: 75%;
+    height: 10px;
 }
 #disk3 {
-    width: 5%;
+    width: 50%;
+    height: 10px;
+}
+.disk {
+
 }
 
-.disks > img {
-    margin: 1px;
-    height: 6px;
+.boxes > div{
+    /* background-color: white;  */
+    margin: 20px;
+    border: 10px;
+    padding: 10px;
+    color: white;
+    height: 200px;
+    width: 100px;
+    border-bottom: 5px solid black;
+    text-align: center;
+
+    background-image: linear-gradient(#000, #000);
+    background-size: 5px 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+
 }
 
-.left-side {
-    position: relative;
-    top: 505px;
-    left: -90px;
+
+
+.boxes {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
 
-.middle-side {
-    position: relative;
-    top: 505px;
-    left: 0px;
+hr {
+    color: black;
+    background: black;
 }
