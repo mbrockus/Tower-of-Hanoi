@@ -38,23 +38,29 @@ let level = 1;
 
 // when a disk is clicked, select it to be moved, only select if top disk is selected
 function diskSelect(event) {
-    event.preventDefault()
-    selectedDisk = undefined
-    const towerParentEl = event.target.parentNode.querySelectorAll('img')
-    
-    for (let i = 0; i < towerParentEl.length; i++) {
 
-        if (towerParentEl[i].getAttribute('sizeIndex') > event.target.getAttribute('sizeIndex')){
-            return
-        }
-    }
-    
-    selectedDisk = event.target;
-    event.target.classList.add('selectedDisk');
+	event.preventDefault();
 
-    if (selectedDisk !== undefined) {
-        selectedDisk.classList.remove('selectedDisk');
-    }
+	if (selectedDisk !== undefined) {
+	    selectedDisk.classList.remove('selectedDisk');
+	}
+    
+	selectedDisk = undefined;
+	const towerParentEl = event.target.parentNode.querySelectorAll('img');
+
+	// compare size of selected disk to all disks within the selected disks parent node, if larger than smallest, exit function
+	for (let i = 0; i < towerParentEl.length; i++) {
+		if (
+			towerParentEl[i].getAttribute('sizeIndex') >
+			event.target.getAttribute('sizeIndex')
+		) {
+			return;
+		}
+	}
+
+	selectedDisk = event.target;
+	event.target.classList.add('selectedDisk');
+
 }
 
 // after a disk is selected, click on a tower to move it
