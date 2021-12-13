@@ -7,34 +7,35 @@
     <link rel="stylesheet" href="style.css">
     <title>Tower of Hanoi</title>
 </head>
-<header>
-    <h1>Tower Of Hanoi</h1>
-</header>
 
 <body>
-<div class="gameBoard">
-
-    <div class="boxes">
-        <div id="box-1">
-
-            <img src="assets/disk3.png" alt="small disk" class="disk" id="disk3" size='3' draggable="true">
-            <img src="assets/disk2.png" alt="medium disk" class="disk" id="disk2" size='2' draggable="true">
-            <img src="assets/disk1.png" alt="large disk" class="disk" id="disk1" size='1' draggable="true">
-
+    <header>
+        <h1>Tower Of Hanoi</h1>
+    </header>
+    <div class="gameBoard">
+        <img src="assets/disk5.png" alt="smallest disk" class="disk" id="disk5" size='5'>
+        <img src="assets/disk4.png" alt="smaller disk" class="disk" id="disk4" size='4'>
+        <img src="assets/disk3.png" alt="small disk" class="disk" id="disk3" size='3'>
+        <img src="assets/disk2.png" alt="medium disk" class="disk" id="disk2" size='2'>
+        <img src="assets/disk1.png" alt="large disk" class="disk" id="disk1" size='1'>
+        
+        <div class="levels">
+            <button id="level-one">Level 1</button>
+            <button id="level-two">Level 2</button>
+            <button id="level-three">Level 3</button>
         </div>
 
-        <div id="box-2">
+        <div class="boxes">
+            <div id="box-1">
+
+            </div>
+
+            <div id="box-2"></div>
+            <div id="box-3"></div>
 
         </div>
-
-        <div id="box-3">
-
-        </div>
-
     </div>
-
-</div>
-<button>Reset</button>
-<script src="script.js"></script>
+    <button id='restart'>Restart</button>
+    <script src="script.js"></script>
 </body>
 </html>
