@@ -60,7 +60,7 @@ F72585 Flickr Pink
 
 .boxes > div{
 
-    margin: 99px 10px;
+    margin: 100px 10px;
     border: 10px;
     padding: 10px;
     color: white;
@@ -117,8 +117,8 @@ justify-content: center;
 
 button {
 
-padding: 0.2em 1.3em;
-margin: 0 0.3em 0.3em 0;
+padding: 0.3em 1.3em;
+margin: 1em;
 border-radius: 2em;
 font-family: 'Source Sans Pro',sans-serif;
 font-weight: 500;
@@ -127,7 +127,7 @@ font-weight: 500;
 
 
 .selectedDisk {
-    background-color: black;
+    background-color: white;
 }
 
 .instructions {
@@ -137,7 +137,7 @@ font-weight: 500;
 
 .bottomButtons {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .instructionFocus {
