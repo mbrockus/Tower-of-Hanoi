@@ -41,8 +41,6 @@ function diskSelect(event) {
     event.preventDefault()
     selectedDisk = undefined
     const towerParentEl = event.target.parentNode.querySelectorAll('img')
-    console.log(towerParentEl)
-    console.log(towerParentEl.length)
     
     for (let i = 0; i < towerParentEl.length; i++) {
 
