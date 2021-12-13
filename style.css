@@ -4,6 +4,7 @@
 
 h1 {
     text-align: center;
+    /* font */
 }
 
 /* color pallet https://coolors.co/f72585-b5179e-7209b7-560bad-480ca8-3a0ca3-3f37c9-4361ee-4895ef-4cc9f0 */
@@ -14,24 +15,20 @@ h1 {
     position: relative;
 }
 
-#middle-tower {
-    margin: 0 10px;
-}
-
 #disk1 {
     width: 100%;
-    height: 10px;
+    /* height: 10px; */
 }
 #disk2 {
     width: 75%;
-    height: 10px;
+    /* height: 10px; */
 }
 #disk3 {
     width: 50%;
-    height: 10px;
+    /* height: 10px; */
 }
 .disk {
-
+    height: 10px;    
 }
 
 .boxes > div{
@@ -52,15 +49,8 @@ h1 {
 
 }
 
-
-
 .boxes {
     display: flex;
     justify-content: center;
     margin-top: 50px;
-}
-
-hr {
-    color: black;
-    background: black;
 }
