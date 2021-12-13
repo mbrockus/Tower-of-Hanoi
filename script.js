@@ -36,24 +36,27 @@ let level = 1;
 
 // event handlers
 
-// when a disk is clicked, select it to be moved
+// when a disk is clicked, select it to be moved, only select if top disk is selected
 function diskSelect(event) {
-	if (selectedDisk !== undefined) {
-		selectedDisk.classList.remove('selectedDisk');
-	}
-	selectedDisk = event.target;
-	event.target.classList.add('selectedDisk');
+    event.preventDefault()
+    selectedDisk = undefined
+    const towerParentEl = event.target.parentNode.querySelectorAll('img')
+    console.log(towerParentEl)
+    console.log(towerParentEl.length)
+    
+    for (let i = 0; i < towerParentEl.length; i++) {
 
-	// if (event.target == leftTowerEl.firstChild) {
-	// 		selectedDisk = event.target;
-	// 		event.target.classList.add('selectedDisk');
-	// 	} else if (event.target == middleTowerEl.firstChild) {
-	// 		selectedDisk = event.target;
-	// 		event.target.classList.add('selectedDisk');
-	// 	} else if (event.target == rightTowerEl.firstChild) {
-	// 		selectedDisk = event.target;
-	// 		event.target.classList.add('selectedDisk');
-	// 	}
+        if (towerParentEl[i].getAttribute('sizeIndex') > event.target.getAttribute('sizeIndex')){
+            return
+        }
+    }
+    
+    selectedDisk = event.target;
+    event.target.classList.add('selectedDisk');
+
+    if (selectedDisk !== undefined) {
+        selectedDisk.classList.remove('selectedDisk');
+    }
 }
 
 // after a disk is selected, click on a tower to move it
@@ -69,7 +72,7 @@ function moveDisk(event) {
 			selectedChildrenEl[i].getAttribute('sizeIndex') >
 			selectedDisk.getAttribute('sizeIndex')
 		) {
-			return true;
+			return
 		}
 	}
 	// prevent moving if no disk is selected
