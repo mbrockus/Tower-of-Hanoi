@@ -149,6 +149,7 @@ function instructionInit() {
 }
 
 // initialize positions
+
 restart();
 instructionInit();
 
