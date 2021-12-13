@@ -1,11 +1,11 @@
 /* fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Poiret+One&family=Roboto:wght@100;300;400;700;900&family=Rubik:wght@300;400;500&family=Source+Sans+Pro:wght@300;400;700&display=swap');
 
 * {
     background-color: #4CC9F0;
     font-family: 'Source Sans Pro', sans-serif;
     text-align: center;
-
 }
 
 
@@ -60,7 +60,7 @@ F72585 Flickr Pink
 
 .boxes > div{
 
-    margin: 100px 10px;
+    margin: 99px 10px;
     border: 10px;
     padding: 10px;
     color: white;
