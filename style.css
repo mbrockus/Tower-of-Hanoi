@@ -3,14 +3,24 @@
 
 * {
     background-color: #4CC9F0;
-}
-
-h1 {
-    text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+
 }
 
-/* color pallet https://coolors.co/f72585-b5179e-7209b7-560bad-480ca8-3a0ca3-3f37c9-4361ee-4895ef-4cc9f0 */
+
+/* color pallet https://coolors.co/f72585-b5179e-7209b7-560bad-480ca8-3a0ca3-3f37c9-4361ee-4895ef-4cc9f0 
+
+F72585 Flickr Pink
+ B5179E Byzantine
+ 7209B7 Purple
+ 560BAD Purple
+ 480CA8 Trypan Blue
+ 3A0CA3 Trypan Blue
+ 3F37C9 Persian Blue
+ 4361EE Ultramarine Blue
+ 4895EF Dodger Blue
+ */
 
 
 .gameboard {
@@ -93,17 +103,15 @@ h1 {
     /* margin-top: 50px; */
 }
 
-#restart {
-
-position: relative;
-left: 45%;
-}
-
 .levels {
 
 display: flex;
-justify-content: space-evenly;
+justify-content: center;
 
+}
+
+.levels > button {
+    margin: 0 20px
 }
 
 
@@ -120,4 +128,23 @@ font-weight: 500;
 
 .selectedDisk {
     background-color: black;
+}
+
+.instructions {
+    text-align: center;
+    margin: 40px;
+}
+
+.bottomButtons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.instructionFocus {
+    opacity: 0;
+}
+
+.instructionsButton {
+    display: flex;
+    justify-content: space-evenly;
 }
