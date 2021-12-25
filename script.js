@@ -32,6 +32,9 @@ const levelThreeEl = document.querySelector('#level-three');
 const instructionTextEl = document.querySelector('.instructions');
 const instructionButtonCloseEl = document.querySelector('#closeInstructions');
 
+// grab winscreen text
+const winscreenEl = document.querySelector('.winScreen')
+
 // grab body
 
 const bodyEl = document.querySelector('body')
@@ -44,7 +47,9 @@ const buttonEl = document.querySelectorAll('button')
 
 let selectedDisk;
 let level = 1;
-let instructionOpen;
+// find out how to make these true if their corresponding screens are open, and false if not
+let instructionOpen = false;
+let winScreenOpen = false;
 
 // event handlers
 
@@ -98,15 +103,6 @@ function moveDisk(event) {
 
 	winCondition();
 }
-function winCondition() {
-	if (rightTowerEl.childElementCount === 3 && level === 1) {
-		alert('you win!');
-	} else if (rightTowerEl.childElementCount === 4 && level === 2) {
-		alert('you win!');
-	} else if (rightTowerEl.childElementCount === 5 && level === 3) {
-		alert('you win!');
-	}
-}
 
 function restart() {
 	if (selectedDisk !== undefined) {
@@ -141,11 +137,11 @@ function levelOne() {
 	leftTowerEl.prepend(disk1);
 	leftTowerEl.prepend(disk2);
 	leftTowerEl.prepend(disk3);
-
+	
 	// hide instructions if open
-		if (instructionOpen) {
-			instructionInit()
-		}
+	if (instructionOpen) {
+		instructionInit()
+	}
 }
 
 function levelTwo() {
@@ -168,12 +164,11 @@ function levelThree() {
 
 function instructionInit() {
 	// google how to make truthy falsy in function js
-	if (instructionOpen = true){
-		instructionOpen = false
-	} else if (instructionOpen = false) {
+	console.log(`starting out ${instructionOpen}`)
+	if (instructionOpen = false) {
 		instructionOpen = true
 	}
-	console.log(instructionOpen)
+	console.log(instructionOpen);
 	instructionTextEl.classList.toggle('hide');
 	bodyEl.classList.toggle('body')
 	bodyEl.classList.toggle('bodyBlackout')
@@ -184,17 +179,32 @@ function instructionInit() {
 	disk5.classList.toggle('hide');
 	restartEl.classList.toggle('hide')
 	instructionButtonEl.classList.toggle('hide')
-
+	
 }
 
+function winCondition() {
+	if (leftTowerEl.childElementCount === 0 && middleTowerEl.childElementCount === 0) {
+			winscreenEl.classList.toggle('hide');
+			bodyEl.classList.toggle('body');
+			bodyEl.classList.toggle('bodyBlackout');
+			disk1.classList.toggle('hide');
+			disk2.classList.toggle('hide');
+			disk3.classList.toggle('hide');
+			disk4.classList.toggle('hide');
+			disk5.classList.toggle('hide');
+			restartEl.classList.toggle('hide');
+			instructionButtonEl.classList.toggle('hide');
+	}
+}
 // initialize positions
 
 restart();
-console.log(disk1.classList)
+console.log(instructionOpen)
 instructionInit();
 
 //  event listeners
 
+// add bubbling here
 disk1.addEventListener('click', diskSelect);
 disk2.addEventListener('click', diskSelect);
 disk3.addEventListener('click', diskSelect);

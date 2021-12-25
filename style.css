@@ -177,6 +177,15 @@ font-weight: 500;
 }
 .winScreen {
 
+    text-align: center;
+    margin: 100px;
+    position: absolute;
+     /* Black w/ opacity */
+     color: white;
+     opacity: 1;
+     /* background-color: (#480CA8, .9); */
+     border-radius: 5px;
+
 }
 
 .bodyBlackout {
