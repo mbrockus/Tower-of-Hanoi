@@ -8,6 +8,8 @@ const rightTowerEl = document.querySelector('#box-3');
 // grab disks
 const disks = document.querySelector('.disks');
 
+const diskAllEl = document.querySelectorAll('.disk')
+
 const disk1 = document.querySelector('#disk1');
 const disk2 = document.querySelector('#disk2');
 const disk3 = document.querySelector('#disk3');
@@ -25,26 +27,35 @@ const levelOneEl = document.querySelector('#level-one');
 const levelTwoEl = document.querySelector('#level-two');
 const levelThreeEl = document.querySelector('#level-three');
 
-// grab instruction text
+// grab instruction text and buttons
 
 const instructionTextEl = document.querySelector('.instructions');
+const instructionButtonCloseEl = document.querySelector('#closeInstructions');
+
+// grab body
+
+const bodyEl = document.querySelector('body')
+const everythingEl = document.querySelector('*')
+const gameBoardEl = document.querySelector('.gameBoard')
+const headerEl = document.querySelector('header')
+const buttonEl = document.querySelectorAll('button')
 
 // variables
 
 let selectedDisk;
 let level = 1;
+let instructionOpen;
 
 // event handlers
 
 // when a disk is clicked, select it to be moved, only select if top disk is selected
 function diskSelect(event) {
-
 	event.preventDefault();
 
 	if (selectedDisk !== undefined) {
-	    selectedDisk.classList.remove('selectedDisk');
+		selectedDisk.classList.remove('selectedDisk');
 	}
-    
+
 	selectedDisk = undefined;
 	const towerParentEl = event.target.parentNode.querySelectorAll('img');
 
@@ -60,7 +71,6 @@ function diskSelect(event) {
 
 	selectedDisk = event.target;
 	event.target.classList.add('selectedDisk');
-
 }
 
 // after a disk is selected, click on a tower to move it
@@ -76,7 +86,7 @@ function moveDisk(event) {
 			selectedChildrenEl[i].getAttribute('sizeIndex') >
 			selectedDisk.getAttribute('sizeIndex')
 		) {
-			return
+			return;
 		}
 	}
 	// prevent moving if no disk is selected
@@ -127,9 +137,15 @@ function levelOne() {
 	level = 1;
 	disk4.remove();
 	disk5.remove();
+	console.log(instructionOpen)
 	leftTowerEl.prepend(disk1);
 	leftTowerEl.prepend(disk2);
 	leftTowerEl.prepend(disk3);
+
+	// hide instructions if open
+		if (instructionOpen) {
+			instructionInit()
+		}
 }
 
 function levelTwo() {
@@ -151,13 +167,30 @@ function levelThree() {
 }
 
 function instructionInit() {
-	instructionTextEl.classList.toggle('instructionFocus');
-	instructionButtonEl.style.opacity = '1';
+	// google how to make truthy falsy in function js
+	if (instructionOpen = true){
+		instructionOpen = false
+	} else if (instructionOpen = false) {
+		instructionOpen = true
+	}
+	console.log(instructionOpen)
+	instructionTextEl.classList.toggle('hide');
+	bodyEl.classList.toggle('body')
+	bodyEl.classList.toggle('bodyBlackout')
+	disk1.classList.toggle('hide')
+	disk2.classList.toggle('hide');
+	disk3.classList.toggle('hide');
+	disk4.classList.toggle('hide');
+	disk5.classList.toggle('hide');
+	restartEl.classList.toggle('hide')
+	instructionButtonEl.classList.toggle('hide')
+
 }
 
 // initialize positions
 
 restart();
+console.log(disk1.classList)
 instructionInit();
 
 //  event listeners
@@ -173,8 +206,10 @@ rightTowerEl.addEventListener('click', moveDisk);
 leftTowerEl.addEventListener('click', moveDisk);
 
 restartEl.addEventListener('click', restart);
-instructionButtonEl.addEventListener('click', instructionInit);
 
 levelOneEl.addEventListener('click', levelOne);
 levelTwoEl.addEventListener('click', levelTwo);
 levelThreeEl.addEventListener('click', levelThree);
+
+instructionButtonCloseEl.addEventListener('click', instructionInit)
+instructionButtonEl.addEventListener('click', instructionInit);
