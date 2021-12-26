@@ -25,16 +25,17 @@
 
     <div class="winScreen hide">
         <h1>You Win!! Play again?</h1>
+        <p>total moves: <span>${}</span></p>
     </div>
 
     <div class="gameBoard">
 
         <div class="disks" >
-            <img src="assets/disk5new.png" alt="smallest disk" class="disk" id="disk5" sizeIndex='5'>
-            <img src="assets/disk4new.png" alt="smaller disk" class="disk" id="disk4" sizeIndex='4'>
-            <img src="assets/disk3new.png" alt="small disk" class="disk" id="disk3" sizeIndex='3'>
-            <img src="assets/disk2new.png" alt="medium disk" class="disk" id="disk2" sizeIndex='2'>
-            <img src="assets/disk1new.png" alt="large disk" class="disk", id="disk1" sizeIndex='1'>
+            <img src="assets/disk5new.png" alt="smallest disk" class="disk" id="disk5" data-size-index='5'>
+            <img src="assets/disk4new.png" alt="smaller disk" class="disk" id="disk4" data-size-index='4'>
+            <img src="assets/disk3new.png" alt="small disk" class="disk" id="disk3" data-size-index='3'>
+            <img src="assets/disk2new.png" alt="medium disk" class="disk" id="disk2" data-size-index='2'>
+            <img src="assets/disk1new.png" alt="large disk" class="disk", id="disk1" data-size-index='1'>
         </div>
         
 
@@ -54,6 +55,7 @@
             <div id="box-3"></div>
 
         </div>
+        <div class="moveTracker">Total Moves: 0</div>
         <div class="bottomButtons">
                 <button id='restart'>Restart</button>
                 <button id='instructions'>Instructions</button>

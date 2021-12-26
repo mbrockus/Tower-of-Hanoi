@@ -47,6 +47,7 @@ const buttonEl = document.querySelectorAll('button')
 
 let selectedDisk;
 let level = 1;
+let moveCounter = 1;
 // find out how to make these true if their corresponding screens are open, and false if not
 let instructionOpen = false;
 let winScreenOpen = false;
@@ -67,8 +68,8 @@ function diskSelect(event) {
 	// compare size of selected disk to all disks within the selected disks parent node, if larger than smallest, exit function
 	for (let i = 0; i < towerParentEl.length; i++) {
 		if (
-			towerParentEl[i].getAttribute('sizeIndex') >
-			event.target.getAttribute('sizeIndex')
+			towerParentEl[i].getAttribute('data-size-index') >
+			event.target.getAttribute('data-size-index')
 		) {
 			return;
 		}
@@ -80,7 +81,9 @@ function diskSelect(event) {
 
 // after a disk is selected, click on a tower to move it
 function moveDisk(event) {
+	
 	event.preventDefault();
+	console.log(moveCounter)
 
 	// grab current element children for each tower
 	let selectedChildrenEl = event.target.querySelectorAll('img');
@@ -88,8 +91,8 @@ function moveDisk(event) {
 	// loop through event.target, compare child element size attribute to selectedDisk size element, return boolean
 	for (let i = 0; i < event.target.childElementCount; i++) {
 		if (
-			selectedChildrenEl[i].getAttribute('sizeIndex') >
-			selectedDisk.getAttribute('sizeIndex')
+			selectedChildrenEl[i].getAttribute('data-size-index') >
+			selectedDisk.getAttribute('data-size-index')
 		) {
 			return;
 		}
@@ -99,12 +102,15 @@ function moveDisk(event) {
 		return;
 	} else {
 		event.target.prepend(selectedDisk);
+		moveCounter += 1;
+
 	}
 
 	winCondition();
 }
 
 function restart() {
+	moveCounter = 0
 	if (selectedDisk !== undefined) {
 		selectedDisk.classList.remove('selectedDisk');
 	}
@@ -134,13 +140,19 @@ function levelOne() {
 	disk4.remove();
 	disk5.remove();
 	console.log(instructionOpen)
+	console.log(`the winscreen when level 1 is pressed is ${winScreenOpen}`)
 	leftTowerEl.prepend(disk1);
 	leftTowerEl.prepend(disk2);
 	leftTowerEl.prepend(disk3);
+
 	
 	// hide instructions if open
 	if (instructionOpen) {
 		instructionInit()
+	}
+	if (winScreenOpen){
+		winConditionClose()
+		winScreenOpen=false
 	}
 }
 
@@ -151,6 +163,16 @@ function levelTwo() {
 	leftTowerEl.prepend(disk3);
 	leftTowerEl.prepend(disk4);
 	disk5.remove();
+
+	// hide instructions if open
+	if (instructionOpen) {
+		instructionInit();
+	}
+
+	if (winScreenOpen) {
+		winConditionClose();
+		winScreenOpen = false;
+	}
 }
 
 function levelThree() {
@@ -160,14 +182,29 @@ function levelThree() {
 	leftTowerEl.prepend(disk3);
 	leftTowerEl.prepend(disk4);
 	leftTowerEl.prepend(disk5);
+
+	// hide instructions if open
+	if (instructionOpen) {
+		instructionInit();
+	}
+
+	if (winScreenOpen) {
+		winConditionClose();
+		winScreenOpen = false;
+	}
 }
 
 function instructionInit() {
 	// google how to make truthy falsy in function js
 	console.log(`starting out ${instructionOpen}`)
-	if (instructionOpen = false) {
+	if (!instructionOpen) {
 		instructionOpen = true
+		console.log('hello from inside the stupid shit')
+		console.log(`inside here instructionOpen is ${instructionOpen}`)
+	} else {
+		instructionOpen = false;
 	}
+
 	console.log(instructionOpen);
 	instructionTextEl.classList.toggle('hide');
 	bodyEl.classList.toggle('body')
@@ -184,22 +221,40 @@ function instructionInit() {
 
 function winCondition() {
 	if (leftTowerEl.childElementCount === 0 && middleTowerEl.childElementCount === 0) {
-			winscreenEl.classList.toggle('hide');
-			bodyEl.classList.toggle('body');
-			bodyEl.classList.toggle('bodyBlackout');
-			disk1.classList.toggle('hide');
-			disk2.classList.toggle('hide');
-			disk3.classList.toggle('hide');
-			disk4.classList.toggle('hide');
-			disk5.classList.toggle('hide');
-			restartEl.classList.toggle('hide');
-			instructionButtonEl.classList.toggle('hide');
+		winScreenOpen = true
+		winscreenEl.classList.toggle('hide');
+		bodyEl.classList.toggle('body');
+		bodyEl.classList.toggle('bodyBlackout');
+		disk1.classList.toggle('hide');
+		disk2.classList.toggle('hide');
+		disk3.classList.toggle('hide');
+		disk4.classList.toggle('hide');
+		disk5.classList.toggle('hide');
+		restartEl.classList.toggle('hide');
+		instructionButtonEl.classList.toggle('hide');
+		console.log(`inside wincondition its ${winScreenOpen}`)
 	}
 }
+
+function winConditionClose() {
+
+	winscreenEl.classList.toggle('hide');
+	bodyEl.classList.toggle('body');
+	bodyEl.classList.toggle('bodyBlackout');
+	disk1.classList.toggle('hide');
+	disk2.classList.toggle('hide');
+	disk3.classList.toggle('hide');
+	disk4.classList.toggle('hide');
+	disk5.classList.toggle('hide');
+	restartEl.classList.toggle('hide');
+	instructionButtonEl.classList.toggle('hide');
+	winScreenOpen = false;
+}
+
 // initialize positions
 
 restart();
-console.log(instructionOpen)
+// console.log(instructionOpen)
 instructionInit();
 
 //  event listeners

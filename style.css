@@ -59,7 +59,7 @@ F72585 Flickr Pink
     height: 10px;
     transition: all 1s;
     padding: 2px;
-    /* display: none; */
+    border-radius: 5px;
 }
 .disks{
     display: none;
@@ -74,10 +74,9 @@ F72585 Flickr Pink
 
 .boxes > div{
 
-    margin: 100px 10px;
+    margin: 100px 10px 50px 10px;
     border: 10px;
     padding: 10px;
-    color: white;
     height: 100px;
     width: 100px;
     border-bottom: 5px solid black;
@@ -127,7 +126,7 @@ justify-content: center;
     margin: 0 20px
 }
 
-
+/* remove this class when level button is selected */
 button {
 
 padding: 0.3em 1.3em;
@@ -135,8 +134,19 @@ margin: 1em;
 border-radius: 2em;
 font-family: 'Source Sans Pro',sans-serif;
 font-weight: 500;
-/* background-color: #F72585; */
+background-color: #4895EF;
 
+}
+
+
+/* change level buttons to this class when selected */
+.levelToggle {
+    padding: 0.3em 1.3em;
+    margin: 1em;
+    border-radius: 2em;
+    font-family: 'Source Sans Pro',sans-serif;
+    font-weight: 500;   
+    background-color: #F72585;
 }
 
 
@@ -175,6 +185,12 @@ font-weight: 500;
     float: right;
     font-size: 25px;
 }
+#closeInstructions:hover{
+    text-decoration: none;
+    font-size: 30px;
+    cursor: grab;
+}
+
 .winScreen {
 
     text-align: center;
