@@ -43,6 +43,9 @@ const gameBoardEl = document.querySelector('.gameBoard')
 const headerEl = document.querySelector('header')
 const buttonEl = document.querySelectorAll('button')
 
+// grab span for movecounters
+const moveCounterEl = document.querySelector('#moveCounter')
+
 // variables
 
 let selectedDisk;
@@ -83,12 +86,14 @@ function diskSelect(event) {
 function moveDisk(event) {
 	
 	event.preventDefault();
-	console.log(moveCounter)
+	console.log(event.target)
+	console.log(selectedDisk.parentNode)
+	
 
 	// grab current element children for each tower
 	let selectedChildrenEl = event.target.querySelectorAll('img');
 
-	// loop through event.target, compare child element size attribute to selectedDisk size element, return boolean
+	// loop through event.target, compare child element size attribute to selectedDisk size element,
 	for (let i = 0; i < event.target.childElementCount; i++) {
 		if (
 			selectedChildrenEl[i].getAttribute('data-size-index') >
@@ -97,12 +102,22 @@ function moveDisk(event) {
 			return;
 		}
 	}
+
 	// prevent moving if no disk is selected
 	if (selectedDisk === undefined) {
 		return;
-	} else {
+		// prevent moving if trying to move disk to a tower its already on
+	} else if (event.target === selectedDisk.parentNode) {
+		console.log('you did it!')
+		return
+	}
+	
+	else {
 		event.target.prepend(selectedDisk);
 		moveCounter += 1;
+		moveCounterEl.innerText('test')
+		console.log(moveCounterEl.innerText)
+		console.log(moveCounter)
 
 	}
 
@@ -120,6 +135,9 @@ function restart() {
 		leftTowerEl.prepend(disk3);
 		disk4.remove();
 		disk5.remove();
+		// highlight level one button
+
+		// unhighlight all others
 	} else if (level === 2) {
 		leftTowerEl.prepend(disk1);
 		leftTowerEl.prepend(disk2);
@@ -139,21 +157,23 @@ function levelOne() {
 	level = 1;
 	disk4.remove();
 	disk5.remove();
-	console.log(instructionOpen)
-	console.log(`the winscreen when level 1 is pressed is ${winScreenOpen}`)
 	leftTowerEl.prepend(disk1);
 	leftTowerEl.prepend(disk2);
 	leftTowerEl.prepend(disk3);
 
-	
 	// hide instructions if open
 	if (instructionOpen) {
-		instructionInit()
+		instructionInit();
 	}
-	if (winScreenOpen){
-		winConditionClose()
-		winScreenOpen=false
+	if (winScreenOpen) {
+		winConditionClose();
+		winScreenOpen = false;
 	}
+	// highlight level one button
+	levelOneEl.classList.add('levelToggle')
+	levelTwoEl.classList.remove('levelToggle')
+	levelThreeEl.classList.remove('levelToggle');
+
 }
 
 function levelTwo() {
@@ -173,6 +193,10 @@ function levelTwo() {
 		winConditionClose();
 		winScreenOpen = false;
 	}
+	// highlight level two button
+	levelOneEl.classList.remove('levelToggle');
+	levelTwoEl.classList.add('levelToggle');
+	levelThreeEl.classList.remove('levelToggle');
 }
 
 function levelThree() {
@@ -192,20 +216,20 @@ function levelThree() {
 		winConditionClose();
 		winScreenOpen = false;
 	}
+	// highlight level three button
+	levelOneEl.classList.remove('levelToggle');
+	levelTwoEl.classList.remove('levelToggle');
+	levelThreeEl.classList.add('levelToggle');
 }
 
 function instructionInit() {
-	// google how to make truthy falsy in function js
-	console.log(`starting out ${instructionOpen}`)
+	// changing state of whether the instruction screen is open or not
 	if (!instructionOpen) {
 		instructionOpen = true
-		console.log('hello from inside the stupid shit')
-		console.log(`inside here instructionOpen is ${instructionOpen}`)
 	} else {
 		instructionOpen = false;
 	}
-
-	console.log(instructionOpen);
+	// opening the instruction screen
 	instructionTextEl.classList.toggle('hide');
 	bodyEl.classList.toggle('body')
 	bodyEl.classList.toggle('bodyBlackout')
@@ -232,7 +256,6 @@ function winCondition() {
 		disk5.classList.toggle('hide');
 		restartEl.classList.toggle('hide');
 		instructionButtonEl.classList.toggle('hide');
-		console.log(`inside wincondition its ${winScreenOpen}`)
 	}
 }
 
@@ -254,7 +277,6 @@ function winConditionClose() {
 // initialize positions
 
 restart();
-// console.log(instructionOpen)
 instructionInit();
 
 //  event listeners

@@ -123,7 +123,7 @@ justify-content: center;
 }
 
 .levels > button {
-    margin: 0 20px
+    margin: 0 20px;
 }
 
 /* remove this class when level button is selected */
@@ -141,12 +141,12 @@ background-color: #4895EF;
 
 /* change level buttons to this class when selected */
 .levelToggle {
-    padding: 0.3em 1.3em;
+    /* padding: 0.3em 1.3em;
     margin: 1em;
     border-radius: 2em;
     font-family: 'Source Sans Pro',sans-serif;
-    font-weight: 500;   
-    background-color: #F72585;
+    font-weight: 500;    */
+    background-color: #F72585
 }
 
 
