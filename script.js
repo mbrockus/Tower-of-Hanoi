@@ -44,7 +44,7 @@ const headerEl = document.querySelector('header')
 const buttonEl = document.querySelectorAll('button')
 
 // grab span for movecounters
-const moveCounterEl = document.querySelector('#moveCounter')
+const moveCounterEl = document.querySelectorAll('.moveCounter')
 
 // variables
 
@@ -115,7 +115,10 @@ function moveDisk(event) {
 	else {
 		event.target.prepend(selectedDisk);
 		moveCounter += 1;
-		moveCounterEl.innerText('test')
+
+		moveCounterEl.forEach(element => element.innerHTML = moveCounter)
+
+		// moveCounterEl.innerText = 'test'
 		console.log(moveCounterEl.innerText)
 		console.log(moveCounter)
 
