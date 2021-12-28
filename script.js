@@ -86,8 +86,6 @@ function diskSelect(event) {
 function moveDisk(event) {
 	
 	event.preventDefault();
-	console.log(event.target)
-	console.log(selectedDisk.parentNode)
 	
 
 	// grab current element children for each tower
@@ -108,20 +106,16 @@ function moveDisk(event) {
 		return;
 		// prevent moving if trying to move disk to a tower its already on
 	} else if (event.target === selectedDisk.parentNode) {
-		console.log('you did it!')
+
 		return
 	}
 	
 	else {
+		// add disk to new tower
 		event.target.prepend(selectedDisk);
+		// update move counters
 		moveCounter += 1;
-
 		moveCounterEl.forEach(element => element.innerHTML = moveCounter)
-
-		// moveCounterEl.innerText = 'test'
-		console.log(moveCounterEl.innerText)
-		console.log(moveCounter)
-
 	}
 
 	winCondition();
@@ -138,9 +132,7 @@ function restart() {
 		leftTowerEl.prepend(disk3);
 		disk4.remove();
 		disk5.remove();
-		// highlight level one button
 
-		// unhighlight all others
 	} else if (level === 2) {
 		leftTowerEl.prepend(disk1);
 		leftTowerEl.prepend(disk2);
