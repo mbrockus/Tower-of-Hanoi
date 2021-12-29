@@ -27,27 +27,24 @@ To install locally:
 ##  User Stories
 
 ### MVP
-- [ ] Mercury
-- [x] Venus
-- [x] Earth (Orbit/Moon)
-- [x] Mars
 
-- As a user, I want to be able to see where the rings and disks are, so I can see how the game is going.
-- As a user, I want to be able to drag a disk and drop it onto a new ring, so I can progress with the game.
-- As a user, I want the game to prevent me from making an illegal move, so I can play the game fairly.
-- As a user, I want to be able to reset the game, so I can start over if I get lost.
-- As a user, I want to know when I win the game, so I can get a positive experience when winning.
+- [x] As a user, I want to be able to see where the rings and disks are, so I can see how the game is going.
+- [x] As a user, I want to be able to drag a disk and drop it onto a new ring, so I can progress with the game.
+- [x] As a user, I want the game to prevent me from making an illegal move, so I can play the game fairly.
+- [x] As a user, I want to be able to reset the game, so I can start over if I get lost.
+- [x] As a user, I want to know when I win the game, so I can get a positive experience when winning.
 
 ### Stretch goals
-- As a user, I want to play more challenging levels, so I can experience a challenge
-- As a user, I want to know how many moves I have made, so I can gauge how well I am doing
-- As a user, I want a limit on how many moves I can make, so I can have a challenge
-- As a user, I want to see a global scoreboard, so I can see how well I am doing vs others
+- [x] As a user, I want to play more challenging levels, so I can experience a challenge
+- [x] As a user, I want to know how many moves I have made, so I can gauge how well I am doing
+- [ ] As a user, I want to see a global scoreboard, so I can see how well I am doing vs others
+- [ ] As a user, I want to be able to drag an drop the disks, for a more intuitive experience
+- [ ] As a user, I want to see how few moves I could have made, so I know how much room I have to grow.
 
 ##  Wireframe
 
 ![Tower of Hanoi Wireframe](./assets/towerofhanoiWireframe.png)
 
-## Still in developmemnt
+## Debugging in progress
 
-- A minimum move calculator, so the user knows 
+- Uncaught DOMException error when a tower is clicked on the same selected disk it contains
