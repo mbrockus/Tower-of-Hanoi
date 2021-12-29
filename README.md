@@ -2,7 +2,15 @@
 
 ##  Description
 
-Tower of Hanoi is a browser game written in HTML, CSS, and JavaScript. it consists of three towers and a number of different sized disks. The disks are placed on the left most ring from largest to smallest. the goal of the game is to get all the disks to the right most ring. Only one disk can be moved at a time. no disk may be placed on top of another disk if the other disk is smaller. Only the top most ring on a disk can be moved.
+Welcome to my first project on GitHub! This project was a part of the Software Engineering Immersive program at General Assembly. It is a browser based game of the Tower of Hanoi.
+
+Tower of Hanoi consists of three towers and a number of different sized disks. The disks are placed on the left most ring from largest to smallest. the goal of the game is to get all the disks to the right most ring. Only one disk can be moved at a time. no disk may be placed on top of another disk if the other disk is smaller. Only the top most ring on a disk can be moved.
+
+## Technologies Used
+
+- HTML
+- CSS
+- Javascript
 
 ## Screenshot of the Application
 
@@ -10,11 +18,20 @@ Tower of Hanoi is a browser game written in HTML, CSS, and JavaScript. it consis
 
 ## Installation Instructions
 
-Go to https://mbrockus.github.io/Tower-of-Hanoi/
+To play in a browser, go to: https://mbrockus.github.io/Tower-of-Hanoi/
+<!-- 
+To install locally:
+
+- fork and clone this repository -->
 
 ##  User Stories
 
 ### MVP
+- [ ] Mercury
+- [x] Venus
+- [x] Earth (Orbit/Moon)
+- [x] Mars
+
 - As a user, I want to be able to see where the rings and disks are, so I can see how the game is going.
 - As a user, I want to be able to drag a disk and drop it onto a new ring, so I can progress with the game.
 - As a user, I want the game to prevent me from making an illegal move, so I can play the game fairly.
@@ -29,4 +46,8 @@ Go to https://mbrockus.github.io/Tower-of-Hanoi/
 
 ##  Wireframe
 
-![Tower of Hanoi Wireframe](./assets/Proj1Wireframe.png)
+![Tower of Hanoi Wireframe](./assets/towerofhanoiWireframe.png)
+
+## Still in developmemnt
+
+- A minimum move calculator, so the user knows 
