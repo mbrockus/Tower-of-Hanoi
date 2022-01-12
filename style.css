@@ -195,7 +195,7 @@ background-color: #4895EF;
 
     text-align: center;
     margin: 100px;
-    position: absolute;
+    /* position: absolute; */
      /* Black w/ opacity */
      color: white;
      opacity: 1;
